@@ -142,7 +142,7 @@ function sendToWhatsApp(formData) {
     console.log('Message:', message);
     
     // Your WhatsApp number (9173722950 with country code +91)
-    const phoneNumber = '918154997758'; // Full international number without +
+    const phoneNumber = '919173722950'; // Full international number without +
     
     // Create WhatsApp API URL - using the correct format
     const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Format message for WhatsApp
                 const whatsappMessage = `📧 CONTACT MESSAGE 📧\n\nName: ${user_name}\nEmail: ${user_email}\nSubject: ${subject}\nMessage: ${message}\n\nReceived at ${new Date().toLocaleString()}`;
                 
-                const phoneNumber = '918154997758';
+                const phoneNumber = '919173722950';
                 const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
                 
                 console.log('Opening WhatsApp:', whatsappURL);
