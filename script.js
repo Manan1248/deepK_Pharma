@@ -88,8 +88,9 @@ filterButtons.forEach(button => {
                 card.style.display = 'block';
                 card.style.animation = 'fadeInUp 0.5s ease';
             } else {
-                const cardCategory = card.getAttribute('data-category');
-                if (cardCategory === filterValue) {
+                const cardCategories = card.getAttribute('data-category');
+                // Check if the filter value is in the card's categories
+                if (cardCategories.includes(filterValue)) {
                     card.style.display = 'block';
                     card.style.animation = 'fadeInUp 0.5s ease';
                 } else {
@@ -113,7 +114,6 @@ addButtons.forEach(button => {
         
         // Get medicine name
         const medicineName = button.closest('.medicine-card').querySelector('h3').textContent;
-        const price = button.closest('.medicine-card').querySelector('.price').textContent;
         
         // Add to cart effect
         button.style.animation = 'pulse 0.5s ease';

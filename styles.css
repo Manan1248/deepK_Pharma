@@ -123,7 +123,7 @@ body::before {
 
 .nav-link:hover,
 .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 }
@@ -174,6 +174,30 @@ body::before {
     margin: 5px 0;
     transition: var(--transition);
     border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* ============================================
@@ -540,6 +564,23 @@ body::before {
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.filter-btn:hover::before {
+    left: 100%;
 }
 
 .filter-btn:hover,
@@ -547,6 +588,7 @@ body::before {
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--white);
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 .medicines-grid {
@@ -564,6 +606,24 @@ body::before {
     cursor: pointer;
     animation: fadeInUp 0.5s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.medicine-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.medicine-card:hover::before {
+    left: 100%;
 }
 
 @keyframes fadeInUp {
@@ -614,6 +674,22 @@ body::before {
 .medicine-card:hover .placeholder-image {
     transform: scale(1.15) rotate(5deg);
     filter: brightness(1.1);
+}
+
+/* Medicine Card Images */
+.medicine-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: block;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.medicine-card:hover .medicine-image {
+    filter: brightness(1.05);
 }
 
 .pain-color {
@@ -811,7 +887,7 @@ body::before {
 }
 
 .submit-btn {
-    padding: 14px 35px;
+    padding: 18px 50px;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--white);
     border: none;
@@ -825,6 +901,8 @@ body::before {
     box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
     position: relative;
     overflow: hidden;
+    margin: 2rem 0 1rem 0;
+    display: inline-block;
 }
 
 .submit-btn::before {
@@ -1089,6 +1167,31 @@ body::before {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem 2rem !important;
+        text-align: left;
     }
 
     .hamburger {
